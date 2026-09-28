@@ -1,30 +1,9 @@
-from validation import valid_classes
-
-students = []
+from student import students
 
 
-def add_student():
+def calculateattendance():
 
-    studentname = input("enter the student name:")
-    rollnumber = input("enter the roll number:")
-    registrationnumber = input("enter the registration number:")
-    totalclasses = int(input("enter the total classes:"))
-    attendedclasses = int(input("enter the attended classes:"))
-
-    if valid_classes(totalclasses, attendedclasses):
-
-        student = [studentname, rollnumber, registrationnumber, totalclasses, attendedclasses]
-
-        students.append(student)
-
-        print("student added successfully")
-
-    else:
-
-        print("invalid classes details")
-
-
-def viewstudents():
+    print("===attendance calculation===")
 
     if len(students) == 0:
 
@@ -34,8 +13,18 @@ def viewstudents():
 
         for student in students:
 
-            print("studentname:", student[0])
-            print("rollnumber:", student[1])
-            print("registrationnumber:", student[2])
-            print("totalclasses:", student[3])
-            print("attendedclasses:", student[4])
+            totalclasses = student[3]
+            attendedclasses = student[4]
+
+            if totalclasses == 0:
+
+                print("student name:", student[0])
+                print("attendance cannot calculate")
+
+            else:
+
+                attendance = (attendedclasses / totalclasses) * 100
+
+                print("student name:", student[0])
+                print("roll number:", student[1])
+                print("attendance:", round(attendance, 2), "%")
