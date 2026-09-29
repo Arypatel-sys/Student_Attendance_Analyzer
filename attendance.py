@@ -9,11 +9,11 @@ def calculateattendance():
             totalclasses = student[3]
             attendedclasses = student[4]
             if totalclasses == 0:
-                print("student name:", student[0])
+                print("student name:",student[0])
                 print("attendance cannot calculate")
 
             else:
                 attendance = (attendedclasses / totalclasses) * 100
-                print("student name:", student[0])
-                print("roll number:", student[1])
-                print("attendance:", round(attendance, 2), "%")
+                print("student name:",student[0])
+                print("roll number:",student[1])
+                print("attendance:",round(attendance, 4), "%")
